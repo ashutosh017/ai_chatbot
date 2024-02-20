@@ -36,13 +36,13 @@ function ChatInput() {
         <div className="text-white font-bold">Chat Bot</div>
       </div>
       <div className="flex-1 flex flex-col overflow-hidden">
-        <div className="flex-1 overflow-auto px-4 py-2">
+        <div className="flex-1 overflow-auto px-4 py-2 ">
           {messages.map((message, i) => (
             <div
               key={i}
               className={`flex  ${
                 message.role === "chatgpt" ? "bg-gray-800" : "bg-blue-500"
-              } rounded-lg p-4 mb-2 w-screen max-w-md self-start text-white`}
+              } rounded-lg p-4 mb-2 max-w-md self-start text-white`}
             >
               <p className="overflow-auto whitespace-pre-line">
                 {message.role === "user" ? "User: " : "ChatGPT: "}
