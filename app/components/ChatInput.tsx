@@ -8,12 +8,14 @@ function ChatInput() {
   ]);
   const msgEnd = useRef<HTMLDivElement | null>(null);
   const handleSendMessage = async () => {
+    const text = input;
+    setInput("");
     setMessages((prevMessages) => [
       ...prevMessages,
-      { role: "user", content: input },
+      { role: "user", content: text },
     ]);
     console.log(messages);
-    const res = await query(input);
+    const res = await query(text);
     setMessages((prevMessages) => [
       ...prevMessages,
       { role: "chatgpt", content: res.content ? res.content : "" },
@@ -33,7 +35,7 @@ function ChatInput() {
   return (
     <div className="flex flex-col h-screen">
       <div className="flex  bg-gray-800 p-4">
-        <div className="text-white font-bold">Chat Bot</div>
+        <div className="text-white font-bold sticky top-0">Chat Bot</div>
       </div>
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="flex-1 overflow-auto px-4 py-2 ">
